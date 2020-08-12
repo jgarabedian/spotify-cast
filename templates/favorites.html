@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+Your favorites
+{% endblock %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col">
+        <div class="list-group">
+            {% for artist in artists['items'] %}
+            <li class="list-group-item">
+                {{ artist.name }}
+            </li>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="col">
+        <div class="list-group">
+            {% for track in tracks['items'] %}
+                <li class="list-group-item">
+                    {{ track.name }}<br>
+                    by {% for artist in track.artists %}
+                        {{ artist.name }}{% if not loop.last %}, {% endif %}
+                    {% endfor %}
+                </li>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}

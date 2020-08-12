@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block page_header %}
+<h1>Home</h1>
+{% endblock %}
+
+{% block content %}
+    {% for result in result_list %}
+        <p>{{ result }}</p>
+    {% endfor %}
+    <hr>
+    <p>
+        {{ user }}
+    </p>
+
+{% endblock %}

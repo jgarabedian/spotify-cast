@@ -31,7 +31,7 @@ def session_cache_path():
 
 
 @app.route('/')
-def user():
+def index():
     auth = spotipy.oauth2.SpotifyOAuth(
         scope="user-top-read user-library-read",
         cache_path=session_cache_path(),

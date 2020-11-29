@@ -66,8 +66,11 @@ def logout():
         print("Error: %s - %s." % (e.filename, e.strerror))
     return redirect('/')
 
+
 @app.route('/favorites')
 def favorites():
+    if not session['logged_in']:
+        redirect('/')
     auth = spotipy.oauth2.SpotifyOAuth(cache_path=session_cache_path())
     if not auth.get_cached_token():
         redirect('/')

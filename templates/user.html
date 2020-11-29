@@ -8,10 +8,12 @@
         and you can go to your profile
         <a href="{{ user['external_urls']['spotify'] }}" target="_blank">here</a>
     </p>
-    {% if user['images'] %}
-        <img src="{{user['images'][0] }}">
+    <div class="d-block">
+        {% if user['images'] %}
+        <img src="{{user['images'][0]['url'] }}">
     {% endif %}
+    </div>
     <a class="btn btn-primary btn-lg" href="/favorites" role="button">See your favorites</a>
 
-</div>
+    </div>
 {% endblock %}
